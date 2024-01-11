@@ -1517,6 +1517,11 @@ class MainUiClass(QtWidgets.QMainWindow, mainGUI.Ui_MainWindow):
             time.sleep(3)
 
     def changeFilament(self):
+        time.sleep(1)
+        if self.printerStatusText not in ["Printing","Paused"]:
+            octopiclient.gcode("G28")
+            octopiclient.gcode("G1 X300 Y0 F10000")
+
         self.stackedWidget.setCurrentWidget(self.changeFilamentPage)
         self.changeFilamentComboBox.clear()
         self.changeFilamentComboBox.addItems(filaments.keys())
@@ -1924,9 +1929,15 @@ class MainUiClass(QtWidgets.QMainWindow, mainGUI.Ui_MainWindow):
         if self.toolToggleChangeFilamentButton.isChecked():
             self.setActiveExtruder(1)
             octopiclient.selectTool(1)
+            time.sleep(1)
+            if self.printerStatusText not in ["Printing","Paused"]:
+                octopiclient.gcode("G1 X300 Y0 F10000")
         else:
             self.setActiveExtruder(0)
             octopiclient.selectTool(0)
+            time.sleep(1)
+            if self.printerStatusText not in ["Printing","Paused"]:
+                octopiclient.gcode("G1 X300 Y0 F10000")
 
     def selectToolMotion(self):
         '''
