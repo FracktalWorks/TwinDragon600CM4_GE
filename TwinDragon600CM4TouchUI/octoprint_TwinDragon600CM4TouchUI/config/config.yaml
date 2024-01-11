@@ -1,0 +1,83 @@
+accessControl:
+  autologinAs: admin
+  autologinLocal: true
+  localNetworks:
+  - 127.0.0.0/8
+  - 192.168.0.0/24
+  - 192.168.1.0/24
+api:
+  allowCrossOrigin: true
+  key: B508534ED20348F090B4D0AD637D3660
+appearance:
+  name: Twin Dragon 600
+plugins:
+  announcements:
+    _config_version: 1
+    channels:
+      _blog:
+        read_until: 1691060700
+      _important:
+        read_until: 1521111600
+      _octopi:
+        read_until: 1684929600
+      _plugins:
+        read_until: 1692748800
+      _releases:
+        read_until: 1689678900
+  discovery:
+    upnpUuid: 888a871c-079d-428d-9d51-6bec46da048d
+  errortracking:
+    unique_id: 304746e3-bdf4-4d26-89ac-d4889b6b6e3c
+  gcodeviewer:
+    _config_version: 1
+  klipper:
+    _config_version: 4
+    configuration:
+      confirm_reload: false
+    connection:
+      replace_connection_panel: false
+  softwareupdate:
+    _config_version: 9
+  tracking:
+    enabled: true
+    unique_id: e471d667-5165-4507-96b7-612d3ebeb5d5
+  virtual_printer:
+    _config_version: 1
+printerProfiles:
+  default: _default
+serial:
+  additionalPorts:
+  - /tmp/printer
+  autoconnect: true
+  baudrate: 115200
+  disconnectOnErrors: false
+  ignoreErrorsFromFirmware: true
+  port: /tmp/printer
+  timeout:
+    communication: 60.0
+    communicationBusy: 10.0
+    connection: 30.0
+server:
+  commands:
+    serverRestartCommand: sudo service octoprint restart
+    systemRestartCommand: sudo reboot now
+    systemShutdownCommand: sudo shutdown
+  firstRun: false
+  onlineCheck:
+    enabled: true
+  pluginBlacklist:
+    enabled: true
+  secretKey: elyHYxDKQTwpDSko8ah24qV72ImN977G
+  seenWizards:
+    backup: null
+    corewizard: 4
+temperature:
+  profiles:
+  - bed: 100
+    chamber: null
+    extruder: 210
+    name: ABS
+  - bed: 60
+    chamber: null
+    extruder: 180
+    name: PLA
